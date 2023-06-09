@@ -1,9 +1,19 @@
 #!/usr/bin/env bash
-# Set the input field separator to a colon
+# Set the IFS to colon (:) to parse fields in /etc/passwd
 IFS=":"
-# Open the /etc/passwd file for reading
-while read -r USERNAME PASSWORD USER_ID GROUP_ID USER_INFO HOME_DIRECTORY COMMAND_SHELL; do
-    # Print the formatted output
-    echo "The user $USERNAME is part of the $GROUP_ID gang, lives in $HOME_DIRECTORY and rides $COMMAND_SHELL. USER ID's place is protected by the passcode $PASSWORD, more info about the user here: $USER_INFO"
+
+# Read the /etc/passwd file line by line using the while loop
+while read -r username password userid groupid userinfo homedir shell
+do
+  # Extract additional user information from /etc/passwd
+  groupname=$(getent group "$groupid" | cut -d ':' -f 1)
+  infofile="/var/log/userinfo/$username.info"  # Replace with actual path to user info file
+
+  # Print user details
+  echo "The user $username is part of the $groupname gang,"
+  echo "lives in $homedir and rides $shell."
+  echo "User ID's place is protected by the passcode $password,"
+  echo "more info about the user here: $infofile"
+  echo
 done < /etc/passwd
 
