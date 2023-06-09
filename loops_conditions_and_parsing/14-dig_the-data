@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#comm
+awk '{print $1" "$NF}' access.log | sort | uniq -c | awk '{print $1" "$3" "$2}' | sort -rn
