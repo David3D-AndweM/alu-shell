@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #comment
 counter=0
 
@@ -13,4 +13,3 @@ do
   fi
   counter=$((counter+1))
 done
-
