@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#comment
 counter=0
 
 while [ $counter -lt 10 ]
