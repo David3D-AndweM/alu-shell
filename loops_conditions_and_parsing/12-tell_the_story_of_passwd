@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
+
 # Set the input field separator to a colon
 IFS=":"
+
 # Open the /etc/passwd file for reading
 while read -r USERNAME PASSWORD USER_ID GROUP_ID USER_INFO HOME_DIRECTORY COMMAND_SHELL; do
     # Print the formatted output
