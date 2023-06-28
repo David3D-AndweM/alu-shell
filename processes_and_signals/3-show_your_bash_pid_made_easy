@@ -9,4 +9,3 @@ for pid in /proc/*/; do
         echo "PID: $pid, Process Name: $procname"
     fi
 done
-
