@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-#commit
-#!/bin/bash
-
 # Get process name and PID for all running processes
 for pid in /proc/*/; do
     pid=${pid%*/}
